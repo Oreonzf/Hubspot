@@ -37,6 +37,8 @@ ngrok http 8080
 Copie a URL HTTPS gerada (ex: https://abc123.ngrok.io) e use como hubspot.redirect-uri:
 
 hubspot.redirect-uri=https://abc123.ngrok.io/hubspot/callback
+
+
 ✅ Opção 2: Hospedar em nuvem
 Caso publique em um ambiente cloud, use a URL da aplicação como redirect-uri no portal do HubSpot e no application.properties.
 
