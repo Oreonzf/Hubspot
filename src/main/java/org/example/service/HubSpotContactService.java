@@ -23,7 +23,7 @@ public class HubSpotContactService {
     public Mono<String> createContact(String accessToken, String email, String firstName, String lastName) {
         WebClient webClient = WebClient.builder()
                 .baseUrl(HUBSPOT_API_URL)
-                .defaultHeader("Authorization", "Bearer " + accessToken)  // Use the injected accessToken
+                .defaultHeader("Authorization", "Bearer " + accessToken)
                 .build();
 
         String contactJson = "{\n" +

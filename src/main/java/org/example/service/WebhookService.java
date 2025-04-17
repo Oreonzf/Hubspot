@@ -13,7 +13,6 @@ public class WebhookService {
     public void processEvents(List<WebhookEvent> events) {
         for (WebhookEvent event : events) {
             log.info("Webhook recebido: {}", event);
-            // Aqui você pode tratar os dados, salvar em banco, etc.
         }
     }
 }

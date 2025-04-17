@@ -1,7 +1,7 @@
 package org.example.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value; // CERTO!!!
+import org.springframework.beans.factory.annotation.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.example.model.hubspot.HubSpotTokenResponse;
 import org.springframework.stereotype.Service;
@@ -54,7 +54,6 @@ public class HubSpotOAuthService {
                     .block();
 
             if (response != null && response.getAccessToken() != null) {
-                // Here, you can save the token or use it in your application
                 return response.getAccessToken();
             } else {
                 throw new RuntimeException("Received empty response or missing access token");
