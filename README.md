@@ -13,6 +13,22 @@ API desenvolvida com Spring Boot para integrar com o HubSpot via OAuth 2.0, perm
 - Lombok
 
 ---
+## 📋 Pré-requisitos
+
+Antes de começar, você precisará de:
+
+- [Java 17+](https://adoptium.net/) instalado
+- [Maven](https://maven.apache.org/) instalado
+- Conta no [HubSpot Developer Portal](https://developers.hubspot.com/)
+- Aplicativo registrado no HubSpot com:
+  - Escopo `contacts` habilitado
+  - URL de redirecionamento configurada
+
+## Install
+git clone https://github.com/Oreonzf/Hubspot.git
+
+./mvnw clean install
+
 ## 🌐 Tornando sua aplicação acessível publicamente
 O HubSpot exige um domínio público para redirecionar o usuário após o login. Você pode usar Ngrok ou publicar em uma nuvem como Render, Railway, Vercel ou Heroku.
 
@@ -23,6 +39,20 @@ Copie a URL HTTPS gerada (ex: https://abc123.ngrok.io) e use como hubspot.redire
 hubspot.redirect-uri=https://abc123.ngrok.io/hubspot/callback
 ✅ Opção 2: Hospedar em nuvem
 Caso publique em um ambiente cloud, use a URL da aplicação como redirect-uri no portal do HubSpot e no application.properties.
+
+---
+
+## ✅ Como Usar (Passo a Passo)
+
+1. Inicie a aplicação com `./mvnw spring-boot:run`
+2. Acesse `http://localhost:8080/hubspot/login` no navegador
+3. Faça login na sua conta HubSpot e aceite as permissões
+4. O HubSpot irá redirecionar para `http://localhost:8080/hubspot/callback?code=...`
+5. O token será obtido e Informado como Json
+6. Com o token obtido se pode fazer requisições via Curl ou Postman
+7. Agora você pode fazer requisições para `POST /hubspot/contact` com os dados do novo contato
+
+
 
 ---
 
@@ -103,17 +133,6 @@ Esse endpoint processa notificações automáticas do HubSpot.
 
 ---
 
-## ✅ Como Usar (Passo a Passo)
-
-1. Inicie a aplicação com `./mvnw spring-boot:run`
-2. Acesse `http://localhost:8080/hubspot/login` no navegador
-3. Faça login na sua conta HubSpot e aceite as permissões
-4. O HubSpot irá redirecionar para `http://localhost:8080/hubspot/callback?code=...`
-5. O token será obtido e Informado como Json
-6. Com o token obtido se pode fazer requisições via Curl ou Postman
-7. Agora você pode fazer requisições para `POST /hubspot/contact` com os dados do novo contato
-
----
 
 ## 🔧 Configurações Necessárias
 
