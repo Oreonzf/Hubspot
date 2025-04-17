@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+hubspot:
+  access-token: "seu-access-token-aqui"
+  client-id: "4583773f-97fb-4c6f-af55-3c61b1b28e66"  # Substitua com o seu client-id
+  client-secret: "defd3b51-a565-4c33-9b3b-e1b41b556e0e"  # Substitua com o seu client-secret
+  redirect-uri: "http://localhost:8080/oauth/callback"  # O URL de redirecionamento após a autenticação
+
+
+spring:
+  application:
+    name: caseauth
+  main:
+    allow-bean-definition-overriding: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+
+info:
+  app:
+    name: API HubSpot
+    description: Documentação da API que integra com o HubSpot
+    version: 1.0.0
+
+logging:
+  level:
+    root: INFO
+    com.seuprojeto: DEBUG
