@@ -2,9 +2,21 @@
 
 API desenvolvida com Spring Boot para integrar com o HubSpot via OAuth 2.0, permitindo autenticação, criação de contatos e recebimento de webhooks.
 
----
+## 📑 Sumário
 
-⚙️ Tecnologias Utilizadas
+- [⚙️ Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [📋 Pré-requisitos](#-pré-requisitos)
+- [🛠️ Instalação](#-instalação)
+- [🌐 Tornando sua aplicação acessível](#-tornando-sua-aplicação-acessível-publicamente)
+- [✅ Como Usar](#-como-usar-passo-a-passo)
+- [🧪 Endpoints da API](#-endpoints-da-api)
+- [🔧 Configurações Necessárias](#-configurações-necessárias)
+- [📚 Documentação Técnica](#-documentação-técnica)
+- [🧪 Testes](#-testes)
+- [📫 Contato](#-contato)
+
+
+# ⚙️ Tecnologias Utilizadas
 ☕ Core
 Java 22
 
