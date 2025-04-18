@@ -154,6 +154,112 @@ hubspot:
 Para esse código foi utilizado uma conta de testes do Hubspot.
 Foi desenvolvido localmente com a utilização de Ngrok, mas também testado em ambiente AWS.
 
+## 📚 Documentação Técnica
+1. Decisões de Arquitetura
+Escolha do Spring WebFlux (WebClient)
+Motivação:
+
+Assíncrono/não-bloqueante para chamadas HTTP ao HubSpot (evita gargalos em alta concorrência).
+
+Integração natural com OAuth2 do HubSpot (fluxo reativo).
+
+Alternativas consideradas:
+
+RestTemplate (depreciado em versões recentes do Spring).
+
+Feign Client (mais simples, mas síncrono).
+
+Padrão de Projeto
+Estrutura modular:
+
+Separação clara entre:
+
+Camada de autenticação (OAuth2Service)
+
+Camada de negócios (ContactService)
+
+Camada de webhooks (WebhookHandler)
+
+Justificativa:
+
+Facilita testes unitários.
+
+Isola responsabilidades (SOLID).
+
+2. Bibliotecas-Chave e Justificativas
+Biblioteca	Motivo
+Lombok	Reduz boilerplate (getters/setters, builders).
+Spring Security	Gerenciamento seguro de tokens OAuth2 e validação de webhooks.
+Jackson	(Padrão do Spring) Parsing eficiente de JSON para webhooks/contatos.
+WebClient	(Spring WebFlux) Chamadas HTTP não-bloqueantes ao HubSpot API.
+
+3. Melhorias Futuras (Roadmap)
+
+
+Prioritárias
+Refresh Token Automático
+
+Implementar lógica para renovar tokens expirados usando refresh_token.
+
+Validação de Webhooks
+
+Adicionar assinatura HMAC para verificar origem dos webhooks (doc HubSpot).
+
+Recomendadas
+Métricas/Monitoramento
+
+Integrar Micrometer + Prometheus para métricas de chamadas à API HubSpot.
+
+Cache de Tokens
+
+Usar Redis ou Caffeine para evitar nova autenticação a cada request.
+
+SDK Client
+
+Gerar cliente TypeScript/Java via OpenAPI Generator para consumidores da API.
+
+Opcionais
+Suporte a Batch Operations
+
+Criar/atualizar múltiplos contatos em uma única chamada.
+
+Integração com SQS/SNS
+
+Publicar eventos de webhooks em filas AWS para processamento assíncrono.
+
+**4. Trade-offs Reconhecidos**
+Decisão	Prós	Contras
+WebFlux (reativo)	Escalabilidade para muitas requisições.	Curva de aprendizado mais acentuada.
+Sem banco de dados	Simplicidade inicial.	Dependência total do cache em memória.
+Ngrok para dev	Rápido setup local.	URL temporária (requer atualização).
+
+
+5. Lições Aprendidas
+
+
+OAuth2 no HubSpot:
+
+O fluxo authorization_code exige HTTPS (por isso Ngrok é essencial para desenvolvimento local).
+
+Webhooks:
+
+HubSpot envia payloads com headers específicos (X-HubSpot-Signature), mas a validação foi omitida na versão inicial por simplicidade.
+
+**6. Contexto de Desenvolvimento**
+
+
+Versão Inicial (MVP):
+Focada em:
+
+Autenticação OAuth2 funcional.
+
+CRUD básico de contatos.
+
+Recebimento de webhooks (sem validação).
+
+Ambiente de Teste:
+
+Conta developer do HubSpot (limite de 1000 contatos).
 
 ---
 
@@ -165,6 +271,8 @@ Execute os testes com:
 ```
 
 ---
+
+
 
 ## 📫 Contato
 
