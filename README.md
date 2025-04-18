@@ -4,13 +4,38 @@ API desenvolvida com Spring Boot para integrar com o HubSpot via OAuth 2.0, perm
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+⚙️ Tecnologias Utilizadas
+☕ Core
+Java 22
 
-- Java 17+
-- Spring Boot
-- Spring WebFlux (WebClient)
-- Maven
-- Lombok
+Spring Boot 3.2.4
+
+Spring WebFlux – para chamadas reativas com WebClient
+
+🔐 Autenticação & Autorização
+OAuth2 Authorization Code Flow com Spring Security
+
+📚 Documentação
+Springdoc OpenAPI 2 – geração automática de documentação Swagger
+
+🧰 Produtividade
+Lombok – redução de boilerplate (@Getter, @RequiredArgsConstructor, etc.)
+
+Spring Boot DevTools – reload automático durante o desenvolvimento
+
+Hibernate Validator (Jakarta Validation) – validação de DTOs com @Valid
+
+🧪 Testes
+JUnit 5
+
+Mockito – criação de mocks e testes unitários
+
+☁️ Integrações e Ferramentas
+HubSpot CRM API – criação de contatos via API REST
+
+HubSpot Webhooks – recebimento de eventos de criação de contatos
+
+Ngrok – exposição do servidor local para testes de webhook
 
 ---
 ## 📋 Pré-requisitos
