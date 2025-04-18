@@ -54,7 +54,7 @@ Ngrok – exposição do servidor local para testes de webhook
 
 Antes de começar, você precisará de:
 
-- [Java 17+](https://adoptium.net/) instalado
+- [Java 22+](https://adoptium.net/) instalado
 - [Maven](https://maven.apache.org/) instalado
 - Conta no [HubSpot Developer Portal](https://developers.hubspot.com/)
 - Aplicativo registrado no HubSpot com:
